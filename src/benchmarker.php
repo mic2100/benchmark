@@ -20,13 +20,14 @@ class benchmarker
         foreach ($this->tests as &$test) {
             $test->execute();
         }
+        unset($test);
 
         return $this;
     }
 
     public function report()
     {
-        foreach ($this->tests as &$test) {
+        foreach ($this->tests as $test) {
             echo $test->output();
             echo PHP_EOL;
         }
