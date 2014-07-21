@@ -1,0 +1,21 @@
+{
+    "name": "mic2100/benchmark",
+    "description": "Benchmarks of various different PHP functions/methods",
+    "keywords": ["benchmark", "testing", "benchmark testing"],
+    "license": "WTFPL",
+    "require": {
+        "php": ">=5.4",
+        "devster/ubench": "1.1.*"
+    },
+    "authors": [
+        {
+            "name": "Michael Bardsley",
+            "email": "me@mic-b.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "mic2100\\benchmark\\": "src/"
+        }
+    }
+}
