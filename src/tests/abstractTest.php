@@ -12,7 +12,7 @@ abstract class abstractTest implements testInterface
 
     protected $array;
 
-    protected $iterations = 100000;
+    protected $iterations = 10000000;
 
     public function output()
     {
