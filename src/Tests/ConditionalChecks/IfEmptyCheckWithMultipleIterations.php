@@ -1,14 +1,14 @@
 <?php
 
-namespace Mic2100\Benchmark\Tests\ArrayKeyChecks;
+namespace Mic2100\Benchmark\Tests\ConditionalChecks;
 
 use Mic2100\Benchmark\Tests\AbstractTest;
 
-class IssetArrayCheckWithMultipleIterations extends AbstractTest
+class IfEmptyCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('isset');
+        $this->setName('if(!empty($this->array))');
         $this->newBenchmarkObject();
         $this->createRandomArray();
     }
@@ -19,7 +19,7 @@ class IssetArrayCheckWithMultipleIterations extends AbstractTest
 
         $this->timer->start();
         foreach ($range as $i) {
-            if(isset($this->array[10])) {
+            if(!empty($this->array)) {
 
             }
         }

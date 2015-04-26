@@ -8,7 +8,7 @@ class IfBooleanCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('if($i)');
+        $this->setName('if($this->array[$i])');
         $this->newBenchmarkObject();
         $this->createRandomArray();
     }
@@ -17,13 +17,13 @@ class IfBooleanCheckWithMultipleIterations extends AbstractTest
     {
         $range = range(1, $this->iterations);
 
-        $this->uBench->start();
+        $this->timer->start();
         foreach ($range as $i) {
-            if($i) {
+            if($this->array) {
 
             }
         }
-        $this->uBench->end();
+        $this->timer->stop();
 
         return $this;
     }

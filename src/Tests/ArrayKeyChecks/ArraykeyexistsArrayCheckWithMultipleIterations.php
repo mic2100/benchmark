@@ -17,13 +17,13 @@ class ArraykeyexistsArrayCheckWithMultipleIterations extends AbstractTest
     {
         $range = range(1, $this->iterations);
 
-        $this->uBench->start();
+        $this->timer->start();
         foreach ($range as $i) {
             if(array_key_exists(10, $this->array)) {
 
             }
         }
-        $this->uBench->end();
+        $this->timer->stop();
 
         return $this;
     }

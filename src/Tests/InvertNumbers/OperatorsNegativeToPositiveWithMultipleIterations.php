@@ -16,11 +16,11 @@ class OperatorsNegativeToPositiveWithMultipleIterations extends AbstractTest
     {
         $range = range(1, $this->iterations);
 
-        $this->uBench->start();
+        $this->timer->start();
         foreach ($range as $i) {
             $value = -100 *- 1;
         }
-        $this->uBench->end();
+        $this->timer->stop();
 
         return $this;
     }

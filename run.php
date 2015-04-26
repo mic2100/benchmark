@@ -37,8 +37,9 @@ $benchmark->execute()->report('ArrayKeyExists vs Isset');
  * Conditional Check - Bool vs is_null check
  */
 $benchmark->reset()
-          ->add(new Tests\ArrayKeyChecks\ArraykeyexistsArrayCheckWithMultipleIterations)
-          ->add(new Tests\ArrayKeyChecks\IssetArrayCheckWithMultipleIterations);
+          ->add(new Tests\ConditionalChecks\IfBooleanCheckWithMultipleIterations)
+          ->add(new Tests\ConditionalChecks\IfEmptyCheckWithMultipleIterations)
+          ->add(new Tests\ConditionalChecks\IfIsNullCheckWithMultipleIterations);
 
 $benchmark->execute()->report('Conditional Check - bool vs is_null check');
 

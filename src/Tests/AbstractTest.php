@@ -2,23 +2,39 @@
 
 namespace Mic2100\Benchmark\Tests;
 
-use Ubench;
+use Mic2100\Benchmark\Timer;
 
 abstract class AbstractTest implements TestInterface
 {
+    /**
+     * The name of the test
+     *
+     * @var string
+     */
     protected $name;
 
-    protected $uBench;
+    /**
+     * @var Timer
+     */
+    protected $timer;
 
+    /**
+     * @var array
+     */
     protected $array;
 
+    /**
+     * The number of iteration that the test will complete
+     *
+     * @var int
+     */
     protected $iterations = 10000000;
 
     public function output()
     {
         return sprintf(
             "\n%.8fs to complete %d times calling %s\n",
-            number_format($this->uBench->getTime(true), 8),
+            number_format($this->timer->getTime(true), 8),
             $this->iterations,
             $this->getName()
         );
@@ -64,7 +80,7 @@ abstract class AbstractTest implements TestInterface
 
     protected function newBenchmarkObject()
     {
-        $this->uBench = new Ubench;
+        $this->timer = new Timer;
 
         return $this;
     }

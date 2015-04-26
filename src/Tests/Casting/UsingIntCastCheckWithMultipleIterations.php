@@ -16,11 +16,11 @@ class UsingIntCastCheckWithMultipleIterations extends AbstractTest
     {
         $range = range(1, $this->iterations);
 
-        $this->uBench->start();
+        $this->timer->start();
         foreach ($range as $i) {
             $value = (int) $i;
         }
-        $this->uBench->end();
+        $this->timer->stop();
 
         return $this;
     }

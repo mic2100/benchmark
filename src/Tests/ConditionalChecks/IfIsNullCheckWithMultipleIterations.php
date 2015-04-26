@@ -8,7 +8,7 @@ class IfIsNullCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('if(!is_null($i))');
+        $this->setName('if(!is_null($this->array))');
         $this->newBenchmarkObject();
         $this->createRandomArray();
     }
@@ -17,13 +17,13 @@ class IfIsNullCheckWithMultipleIterations extends AbstractTest
     {
         $range = range(1, $this->iterations);
 
-        $this->uBench->start();
+        $this->timer->start();
         foreach ($range as $i) {
-            if(!is_null($i)) {
+            if(!is_null($this->array)) {
 
             }
         }
-        $this->uBench->end();
+        $this->timer->stop();
 
         return $this;
     }
