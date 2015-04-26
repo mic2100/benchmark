@@ -1,12 +1,14 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\ConditionalChecks;
 
-class issetArrayCheckWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class IfBooleanCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('isset');
+        $this->setName('if($i)');
         $this->newBenchmarkObject();
         $this->createRandomArray();
     }
@@ -17,7 +19,7 @@ class issetArrayCheckWithMultipleIterations extends abstractTest
 
         $this->uBench->start();
         foreach ($range as $i) {
-            if(isset($this->array[10])) {
+            if($i) {
 
             }
         }

@@ -1,13 +1,16 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\ArrayKeyChecks;
 
-class usingIntValCheckWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class IssetArrayCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('intval');
+        $this->setName('isset');
         $this->newBenchmarkObject();
+        $this->createRandomArray();
     }
 
     public function execute()
@@ -16,7 +19,9 @@ class usingIntValCheckWithMultipleIterations extends abstractTest
 
         $this->uBench->start();
         foreach ($range as $i) {
-            $value = intval($i);
+            if(isset($this->array[10])) {
+
+            }
         }
         $this->uBench->end();
 

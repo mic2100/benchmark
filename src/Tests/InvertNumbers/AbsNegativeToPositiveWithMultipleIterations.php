@@ -1,14 +1,15 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\InvertNumbers;
 
-class ifBooleanCheckWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class AbsNegativeToPositiveWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('if($i)');
+        $this->setName('abs');
         $this->newBenchmarkObject();
-        $this->createRandomArray();
     }
 
     public function execute()
@@ -17,9 +18,7 @@ class ifBooleanCheckWithMultipleIterations extends abstractTest
 
         $this->uBench->start();
         foreach ($range as $i) {
-            if($i) {
-
-            }
+            $value = abs(-100);
         }
         $this->uBench->end();
 

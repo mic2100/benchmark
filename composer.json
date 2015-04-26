@@ -1,5 +1,5 @@
 {
-    "name": "mic2100/benchmark",
+    "name": "Mic2100/Benchmark",
     "description": "Benchmarks of various different PHP functions/methods",
     "keywords": ["benchmark", "testing", "benchmark testing"],
     "license": "WTFPL",
@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "mic2100\\benchmark\\": "src/"
+            "Mic2100\\Benchmark\\": "src/"
         }
     }
 }

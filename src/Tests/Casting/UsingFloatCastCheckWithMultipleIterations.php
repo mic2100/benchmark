@@ -1,12 +1,14 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\Casting;
 
-class operatorsNegativeToPositiveWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class UsingFloatCastCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('operators');
+        $this->setName('(float)');
         $this->newBenchmarkObject();
     }
 
@@ -16,7 +18,7 @@ class operatorsNegativeToPositiveWithMultipleIterations extends abstractTest
 
         $this->uBench->start();
         foreach ($range as $i) {
-            $value = -100 *- 1;
+            $value = (float) $i;
         }
         $this->uBench->end();
 

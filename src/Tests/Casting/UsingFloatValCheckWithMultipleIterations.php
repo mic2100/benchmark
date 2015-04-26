@@ -1,12 +1,14 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\Casting;
 
-class lTrimNegativeToPositiveWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class UsingFloatValCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('lTrim');
+        $this->setName('floatval');
         $this->newBenchmarkObject();
     }
 
@@ -16,7 +18,7 @@ class lTrimNegativeToPositiveWithMultipleIterations extends abstractTest
 
         $this->uBench->start();
         foreach ($range as $i) {
-            $value = (int) ltrim((string) -100, '-');
+            $value = floatval($i);
         }
         $this->uBench->end();
 

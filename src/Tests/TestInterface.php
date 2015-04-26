@@ -1,8 +1,8 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests;
 
-interface testInterface
+interface TestInterface
 {
     public function execute();
     public function output();

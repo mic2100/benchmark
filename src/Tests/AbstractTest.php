@@ -1,10 +1,10 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests;
 
 use Ubench;
 
-abstract class abstractTest implements testInterface
+abstract class AbstractTest implements TestInterface
 {
     protected $name;
 

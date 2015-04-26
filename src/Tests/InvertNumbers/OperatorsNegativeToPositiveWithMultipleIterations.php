@@ -1,12 +1,14 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\InvertNumbers;
 
-class strReplaceNegativeToPositiveWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class OperatorsNegativeToPositiveWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('str_replace');
+        $this->setName('operators');
         $this->newBenchmarkObject();
     }
 
@@ -16,11 +18,10 @@ class strReplaceNegativeToPositiveWithMultipleIterations extends abstractTest
 
         $this->uBench->start();
         foreach ($range as $i) {
-            $value = (int) str_replace('-', '', (string) -100);
+            $value = -100 *- 1;
         }
         $this->uBench->end();
 
         return $this;
     }
 }
-    

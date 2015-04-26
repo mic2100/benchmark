@@ -1,8 +1,10 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\ConditionalChecks;
 
-class ifIsNullCheckWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class IfIsNullCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {

@@ -1,12 +1,14 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\InvertNumbers;
 
-class absNegativeToPositiveWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class LTrimNegativeToPositiveWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('abs');
+        $this->setName('lTrim');
         $this->newBenchmarkObject();
     }
 
@@ -16,7 +18,7 @@ class absNegativeToPositiveWithMultipleIterations extends abstractTest
 
         $this->uBench->start();
         foreach ($range as $i) {
-            $value = abs(-100);
+            $value = (int) ltrim((string) -100, '-');
         }
         $this->uBench->end();
 

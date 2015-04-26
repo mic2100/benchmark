@@ -1,12 +1,14 @@
 <?php
 
-namespace mic2100\benchmark\tests;
+namespace Mic2100\Benchmark\Tests\Casting;
 
-class usingIntCastCheckWithMultipleIterations extends abstractTest
+use Mic2100\Benchmark\Tests\AbstractTest;
+
+class UsingIntValCheckWithMultipleIterations extends AbstractTest
 {
     public function __construct()
     {
-        $this->setName('(int)');
+        $this->setName('intval');
         $this->newBenchmarkObject();
     }
 
@@ -16,7 +18,7 @@ class usingIntCastCheckWithMultipleIterations extends abstractTest
 
         $this->uBench->start();
         foreach ($range as $i) {
-            $value = (int) $i;
+            $value = intval($i);
         }
         $this->uBench->end();
 
