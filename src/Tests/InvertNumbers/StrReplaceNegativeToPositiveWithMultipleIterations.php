@@ -9,20 +9,11 @@ class StrReplaceNegativeToPositiveWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('str_replace');
-        $this->newBenchmarkObject();
+        $this->createTimer();
     }
 
-    public function execute()
+    public function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            $value = (int) str_replace('-', '', (string) -100);
-        }
-        $this->timer->stop();
-
-        return $this;
+        $value = (int) str_replace('-', '', (string) -$i);
     }
 }
-    

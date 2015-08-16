@@ -9,22 +9,12 @@ class IfEmptyCheckWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('if(!empty($this->array))');
-        $this->newBenchmarkObject();
+        $this->createTimer();
         $this->createRandomArray();
     }
 
-    public function execute()
+    protected function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            if(!empty($this->array)) {
-
-            }
-        }
-        $this->timer->stop();
-
-        return $this;
+        if(!empty($this->array)) {}
     }
 }

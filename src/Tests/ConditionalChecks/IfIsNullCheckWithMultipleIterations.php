@@ -9,22 +9,12 @@ class IfIsNullCheckWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('if(!is_null($this->array))');
-        $this->newBenchmarkObject();
+        $this->createTimer();
         $this->createRandomArray();
     }
 
-    public function execute()
+    public function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            if(!is_null($this->array)) {
-
-            }
-        }
-        $this->timer->stop();
-
-        return $this;
+        if(!is_null($this->array)) {}
     }
 }

@@ -9,19 +9,11 @@ class UsingFloatCastCheckWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('(float)');
-        $this->newBenchmarkObject();
+        $this->createTimer();
     }
 
-    public function execute()
+    public function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            $value = (float) $i;
-        }
-        $this->timer->stop();
-
-        return $this;
+        $value = (float) $i;
     }
 }

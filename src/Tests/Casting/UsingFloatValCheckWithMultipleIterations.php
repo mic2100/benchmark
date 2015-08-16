@@ -9,19 +9,11 @@ class UsingFloatValCheckWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('floatval');
-        $this->newBenchmarkObject();
+        $this->createTimer();
     }
 
-    public function execute()
+    public function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            $value = floatval($i);
-        }
-        $this->timer->stop();
-
-        return $this;
+        $value = floatval($i);
     }
 }

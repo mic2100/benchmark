@@ -9,22 +9,15 @@ class IssetArrayCheckWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('isset');
-        $this->newBenchmarkObject();
+        $this->createTimer();
         $this->createRandomArray();
     }
 
-    public function execute()
+    /**
+     * The arbitrary piece of code to execute
+     */
+    protected function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            if(isset($this->array[10])) {
-
-            }
-        }
-        $this->timer->stop();
-
-        return $this;
+        if(isset($this->array[10])) {}
     }
 }

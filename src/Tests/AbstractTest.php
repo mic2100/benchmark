@@ -2,6 +2,7 @@
 
 namespace Mic2100\Benchmark\Tests;
 
+use Mic2100\Benchmark\ArrayGenerator;
 use Mic2100\Benchmark\Timer;
 
 abstract class AbstractTest implements TestInterface
@@ -30,21 +31,51 @@ abstract class AbstractTest implements TestInterface
      */
     protected $iterations = 10000000;
 
+    /**
+     * @var float
+     */
+    protected $totalTime = 0;
+
+    /**
+     * Execute and run all the tests
+     */
+    public function execute()
+    {
+        $this->iterate();
+    }
+
+    /**
+     * Returns a decorated string with details of the test
+     *
+     * @return string
+     */
     public function output()
     {
         return sprintf(
             "\n%.8fs to complete %d times calling %s\n",
-            number_format($this->timer->getTime(true), 8),
+            number_format($this->totalTime, 8),
             $this->iterations,
             $this->getName()
         );
     }
 
+    /**
+     * The arbitrary piece of code to execute
+     */
+    abstract protected function test($i);
+
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return $this
+     */
     public function setName($name)
     {
         $this->name = (string) $name;
@@ -52,33 +83,68 @@ abstract class AbstractTest implements TestInterface
         return $this;
     }
 
+    /**
+     * Iterate, run the test, and keep track of the time taken
+     */
+    protected function iterate()
+    {
+        $range = range(1, $this->iterations);
+        foreach ($range as $i) {
+            //$this->timer->start();
+            $start = microtime(true);
+            $this->test($i);
+            //$this->timer->stop();
+            $end = microtime(true);
+            //$this->totalTime += $this->timer->getTime();
+            $this->totalTime += ($end - $start);
+        }
+    }
+
+    /**
+     * Create a random array
+     *
+     * @param int $iterations
+     * @param int $length
+     * @return $this
+     */
     protected function createRandomArray($iterations = 100, $length = 30)
     {
-        $this->array = [];
-        for($i = 0; $i < $iterations; $i++) {
-            $this->array[] = $this->getRandomString($length);
-        }
+        $this->array = ArrayGenerator::createRandomArray($iterations, $length);
 
         return $this;
     }
 
+    /**
+     * Create a random associated array
+     *
+     * @param int $iterations
+     * @param int $length
+     * @return $this
+     */
     protected function createRandomAssocArray($iterations = 100, $length = 30)
     {
-        $this->array = [];
-        $key = 'aaa';
-        for($i = 0; $i < $iterations; $i++) {
-            $this->array[$key++] = $this->getRandomString($length);
-        }
+        $this->array = ArrayGenerator::createRandomAssocArray($iterations, $length);
 
         return $this;
     }
 
+    /**
+     * Get a random string
+     *
+     * @param int $length
+     * @return string
+     */
     protected function getRandomString($length = 30)
     {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
     }
 
-    protected function newBenchmarkObject()
+    /**
+     * Create a timer object
+     *
+     * @return $this
+     */
+    protected function createTimer()
     {
         $this->timer = new Timer;
 

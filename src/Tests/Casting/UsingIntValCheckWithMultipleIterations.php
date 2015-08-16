@@ -9,19 +9,11 @@ class UsingIntValCheckWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('intval');
-        $this->newBenchmarkObject();
+        $this->createTimer();
     }
 
-    public function execute()
+    public function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            $value = intval($i);
-        }
-        $this->timer->stop();
-
-        return $this;
+        $value = intval($i);
     }
 }

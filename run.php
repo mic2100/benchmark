@@ -53,4 +53,3 @@ $benchmark->reset()
           ->add(new Tests\InvertNumbers\OperatorsNegativeToPositiveWithMultipleIterations);
 
 $benchmark->execute()->report('Convert number from negative to positive');
-

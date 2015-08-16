@@ -9,19 +9,11 @@ class OperatorsNegativeToPositiveWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('operators');
-        $this->newBenchmarkObject();
+        $this->createTimer();
     }
 
-    public function execute()
+    public function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            $value = -100 *- 1;
-        }
-        $this->timer->stop();
-
-        return $this;
+        $value = -$i *- 1;
     }
 }

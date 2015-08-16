@@ -9,22 +9,12 @@ class IfBooleanCheckWithMultipleIterations extends AbstractTest
     public function __construct()
     {
         $this->setName('if($this->array[$i])');
-        $this->newBenchmarkObject();
+        $this->createTimer();
         $this->createRandomArray();
     }
 
-    public function execute()
+    public function test($i)
     {
-        $range = range(1, $this->iterations);
-
-        $this->timer->start();
-        foreach ($range as $i) {
-            if($this->array) {
-
-            }
-        }
-        $this->timer->stop();
-
-        return $this;
+        if($this->array) {}
     }
 }
