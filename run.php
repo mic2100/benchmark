@@ -53,3 +53,21 @@ $benchmark->reset()
           ->add(new Tests\InvertNumbers\OperatorsNegativeToPositiveWithMultipleIterations);
 
 $benchmark->execute()->report('Convert number from negative to positive');
+
+/**
+ * Loops
+ */
+$benchmark->reset()
+          ->add(new Tests\Loops\ForeachArrayIteration)
+          ->add(new Tests\Loops\ForIntegerIteration);
+
+$benchmark->execute()->report('Loops iterations');
+
+/**
+ * Validation
+ */
+$benchmark->reset()
+          ->add(new Tests\Validation\FilterVarValidateInt)
+          ->add(new Tests\Validation\PregMatchValidateInt);
+
+$benchmark->execute()->report('Validation');

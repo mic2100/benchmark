@@ -29,7 +29,7 @@ abstract class AbstractTest implements TestInterface
      *
      * @var int
      */
-    protected $iterations = 10000000;
+    protected $iterations = 1000000;
 
     /**
      * @var float
