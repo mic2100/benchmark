@@ -56,20 +56,12 @@ class Benchmarker
     /**
      * Report on the tests that have been executed
      *
-     * @param string $title
-     * @return $this
+     * @return \Generator
      */
-    public function report($title)
+    public function report()
     {
-        echo $title . PHP_EOL;
-        echo '============================================================================';
         foreach ($this->tests as $test) {
-            echo $test->output();
-            echo '============================================================================';
+            yield $test->output();
         }
-
-        echo PHP_EOL;
-
-        return $this;
     }
 }

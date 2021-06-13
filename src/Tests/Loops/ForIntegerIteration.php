@@ -6,6 +6,8 @@ use Mic2100\Benchmark\Tests\AbstractTest;
 
 class ForIntegerIteration extends AbstractTest
 {
+    public const GROUP_NAME = 'Loops';
+
     public function __construct()
     {
         $this->setName('For Integer Iteration "for ($i = 0; $i < 10; $i++)"');

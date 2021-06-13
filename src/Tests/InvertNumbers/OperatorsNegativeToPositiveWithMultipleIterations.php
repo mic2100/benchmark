@@ -6,6 +6,8 @@ use Mic2100\Benchmark\Tests\AbstractTest;
 
 class OperatorsNegativeToPositiveWithMultipleIterations extends AbstractTest
 {
+    public const GROUP_NAME = 'InvertNumbers';
+
     public function __construct()
     {
         $this->setName('operators');

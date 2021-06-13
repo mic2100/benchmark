@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Mic2100\Benchmark\Commands\TestsRunCommand;
+use Mic2100\Benchmark\Tests;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+$testsCommand = new TestsRunCommand;
+$testsCommand
+    ->addTest(new Tests\ArrayKeyChecks\ArraykeyexistsArrayCheckWithMultipleIterations)
+    ->addTest(new Tests\ArrayKeyChecks\IssetArrayCheckWithMultipleIterations)
+    ->addTest(new Tests\Casting\UsingIntCastCheckWithMultipleIterations)
+    ->addTest(new Tests\Casting\UsingIntValCheckWithMultipleIterations)
+    ->addTest(new Tests\ConditionalChecks\IfBooleanCheckWithMultipleIterations)
+    ->addTest(new Tests\ConditionalChecks\IfEmptyCheckWithMultipleIterations)
+    ->addTest(new Tests\ConditionalChecks\IfIsNullCheckWithMultipleIterations)
+    ->addTest(new Tests\InvertNumbers\AbsNegativeToPositiveWithMultipleIterations)
+    ->addTest(new Tests\InvertNumbers\LTrimNegativeToPositiveWithMultipleIterations)
+    ->addTest(new Tests\InvertNumbers\StrReplaceNegativeToPositiveWithMultipleIterations)
+    ->addTest(new Tests\InvertNumbers\OperatorsNegativeToPositiveWithMultipleIterations)
+    ->addTest(new Tests\Loops\ForeachArrayIteration)
+    ->addTest(new Tests\Loops\ForIntegerIteration)
+    ->addTest(new Tests\Validation\FilterVarValidateInt)
+    ->addTest(new Tests\Validation\PregMatchValidateInt)
+    ->addTest(new Tests\NullStringCheck\IssetTernary)
+    ->addTest(new Tests\NullStringCheck\NullCoalesce)
+;
+
+$application->add($testsCommand);
+
+$application->run();

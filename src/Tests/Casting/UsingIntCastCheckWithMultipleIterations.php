@@ -6,6 +6,8 @@ use Mic2100\Benchmark\Tests\AbstractTest;
 
 class UsingIntCastCheckWithMultipleIterations extends AbstractTest
 {
+    public const GROUP_NAME = 'Casting';
+
     public function __construct()
     {
         $this->setName('(int)');

@@ -29,7 +29,7 @@ abstract class AbstractTest implements TestInterface
      *
      * @var int
      */
-    protected $iterations = 1000000;
+    protected $iterations = 500000;
 
     /**
      * @var float
@@ -47,16 +47,15 @@ abstract class AbstractTest implements TestInterface
     /**
      * Returns a decorated string with details of the test
      *
-     * @return string
+     * @return array
      */
     public function output()
     {
-        return sprintf(
-            "\n%.8fs to complete %d times calling %s\n",
-            number_format($this->totalTime, 8),
-            $this->iterations,
-            $this->getName()
-        );
+        return [
+            $this->getName(),
+            $this->totalTime,
+            $this->iterations
+        ];
     }
 
     /**

@@ -1,20 +1,25 @@
 {
-    "name": "Mic2100/Benchmark",
-    "description": "Benchmarks of various different PHP functions/methods",
-    "keywords": ["benchmark", "testing", "benchmark testing"],
-    "license": "WTFPL",
-    "require": {
-        "php": ">=5.4"
-    },
-    "authors": [
-        {
-            "name": "Michael Bardsley",
-            "email": "me@mic-b.co.uk"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Mic2100\\Benchmark\\": "src/"
-        }
+  "name": "mic2100/benchmark",
+  "description": "Benchmarks of various different PHP functions/methods",
+  "keywords": [
+    "benchmark",
+    "testing",
+    "benchmark testing",
+    "profiling"
+  ],
+  "license": "WTFPL",
+  "authors": [
+    {
+      "name": "Michael Bardsley",
+      "email": "mic.bardsley@outlook.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mic2100\\Benchmark\\": "src/"
+    }
+  },
+  "require": {
+    "symfony/console": "^5.3"
+  }
 }

@@ -6,6 +6,8 @@ use Mic2100\Benchmark\Tests\AbstractTest;
 
 class PregMatchValidateInt extends AbstractTest
 {
+    public const GROUP_NAME = 'Validation';
+
     public function __construct()
     {
         $this->setName('Preg Match Validate Int"');

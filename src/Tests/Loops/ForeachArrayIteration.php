@@ -6,6 +6,8 @@ use Mic2100\Benchmark\Tests\AbstractTest;
 
 class ForeachArrayIteration extends AbstractTest
 {
+    public const GROUP_NAME = 'Loops';
+
     public function __construct()
     {
         $this->setName('Foreach Array Iteration "foreach ($array as $key => $value)"');

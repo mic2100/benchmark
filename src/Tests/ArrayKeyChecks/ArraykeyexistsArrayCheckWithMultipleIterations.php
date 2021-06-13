@@ -6,6 +6,8 @@ use Mic2100\Benchmark\Tests\AbstractTest;
 
 class ArraykeyexistsArrayCheckWithMultipleIterations extends AbstractTest
 {
+    public const GROUP_NAME = 'ArrayKeyChecks';
+
     public function __construct()
     {
         $this->setName('array_key_exists');
